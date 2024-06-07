@@ -8,8 +8,7 @@
  * is normalized, denormalized, or is a special case. check
  * the writeup and autograder for expected values.
  */
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     // 16-bits
     // 1 sign bit
     // 5 bit exponent
@@ -26,14 +25,12 @@ int main(int argc, char** argv)
     unsigned long binary;
 
 check_binary:
-    if (bit_ptr == binary_string + strlen(binary_string) - 1)
-    {
+    if (bit_ptr == binary_string + strlen(binary_string) - 1) {
         bit_ptr = binary_string + 1;
         goto check_size;
     }
 
-    if (!(*bit_ptr == 48 || *bit_ptr == 49))
-    {
+    if (!(*bit_ptr == 48 || *bit_ptr == 49)) {
         fprintf(stderr, "invalid format");
         goto ret;
     }
@@ -42,8 +39,7 @@ check_binary:
     goto check_binary;
 
 check_size:
-    if (strlen(binary_string) != 16)
-    {
+    if (strlen(binary_string) != 16) {
         fprintf(stderr, "must be 16 bits");
         goto ret;
     }
@@ -54,20 +50,17 @@ fpclass:
     binary = strtoul(binary_string, NULL, 2);
     binary = (binary & 0b0111110000000000) >> 10;
 
-    if (binary == 0b11111)
-    {
+    if (binary == 0b11111) {
         printf("This value is a special case");
         goto ret;
     }
 
-    if (binary == 0b00000)
-    {
+    if (binary == 0b00000) {
         printf("This value is denormalized");
         goto ret;
     }
 
-    if (0b00000 < binary && binary < 0b11111)
-    {
+    if (0b00000 < binary && binary < 0b11111) {
         printf("This value is normalized");
         goto ret;
     }

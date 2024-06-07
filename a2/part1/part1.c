@@ -17,13 +17,14 @@
  *
  *  Use goto statements
  */
-long mathpow(int base, int exp)
-{
+long mathpow(int base, int exp) {
     long result = 1;
     int i = 0;
 
 loop:  // for (int i = 0; i < exp; i++)
-    if (!(i < exp)) { goto ret; }
+    if (!(i < exp)) {
+        goto ret;
+    }
 
     result *= base;
 
@@ -52,10 +53,8 @@ ret:
  *
  * YOU MUST USE GOTO statements, no loops, else if, else.
  */
-int main(int argc, char** argv)
-{
-    if (argc < 3)
-    {
+int main(int argc, char** argv) {
+    if (argc < 3) {
         fprintf(stderr, "./binarytodec {binary string} {1 for signed, 0 for unsigned}");
         goto ret;
     }
@@ -71,10 +70,11 @@ int main(int argc, char** argv)
     int minbit = 0;
 
 check_binary:
-    if (bit_ptr == binary_string + strlen(binary_string) - 1) { goto check_sign; }
+    if (bit_ptr == binary_string + strlen(binary_string) - 1) {
+        goto check_sign;
+    }
 
-    if (!(*bit_ptr == 48 || *bit_ptr == 49 || *bit_ptr == '\0'))
-    {
+    if (!(*bit_ptr == 48 || *bit_ptr == 49 || *bit_ptr == '\0')) {
         fprintf(stderr, "invalid binary string");
         goto ret;
     }
@@ -83,9 +83,10 @@ check_binary:
     goto check_binary;
 
 check_sign:
-    if (is_signed)
-    {
-        if (signbit == 1) { result += -mathpow(2, strlen(binary_string) - 1); }
+    if (is_signed) {
+        if (signbit == 1) {
+            result += -mathpow(2, strlen(binary_string) - 1);
+        }
 
         maxbit = strlen(binary_string) - 2;
         goto convert;
@@ -95,9 +96,13 @@ check_sign:
     goto convert;
 
 convert:
-    if (!(minbit <= maxbit)) { goto ret; }
+    if (!(minbit <= maxbit)) {
+        goto ret;
+    }
 
-    if (*bit_ptr == 49) { result += mathpow(2, minbit); }
+    if (*bit_ptr == 49) {
+        result += mathpow(2, minbit);
+    }
 
     minbit++;
     bit_ptr--;  // when we start the loop, bit_ptr = binary_string + strlen(binary_string) - 1

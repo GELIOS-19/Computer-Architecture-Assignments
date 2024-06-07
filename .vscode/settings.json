@@ -22,6 +22,8 @@
     "*.rexx": "rexx",
     "stdlib.h": "c",
     "utility": "cpp",
-    "time.h": "c"
+    "time.h": "c",
+    "stdio.h": "c",
+    "string.h": "c"
   }
 }
