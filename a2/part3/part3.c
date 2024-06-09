@@ -44,18 +44,21 @@
     #define FRAC 10
 #endif
 
-double interpret_mantissa(unsigned long mantissa, int denormalized) {
+double interpret_mantissa(unsigned long mantissa, int denormalized)
+{
     double mantissa_value = 0;
 
     int i = FRAC - 1;
     int place = -1;
 
-    if (denormalized) {
+    if (denormalized)
+    {
         place = 0;
     }
 
 loop:
-    if (!(i >= 0)) {
+    if (!(i >= 0))
+    {
         goto ret;
     }
 
@@ -70,8 +73,10 @@ ret:
     return mantissa_value;
 }
 
-int main(int argc, char** argv) {
-    if (argc < 2) {
+int main(int argc, char** argv)
+{
+    if (argc < 2)
+    {
         fprintf(stderr, "./floattoIEEE754 {IEEE 754 String}");
         goto ret;
     }
@@ -97,11 +102,13 @@ int main(int argc, char** argv) {
     long double result;
 
 check_binary:
-    if (bit_ptr == binary_string + strlen(binary_string) - 1) {
+    if (bit_ptr == binary_string + strlen(binary_string) - 1)
+    {
         goto check_size;
     }
 
-    if (!(*bit_ptr == 48 || *bit_ptr == 49)) {
+    if (!(*bit_ptr == 48 || *bit_ptr == 49))
+    {
         fprintf(stderr, "invalid binary format");
         goto ret;
     }
@@ -110,7 +117,8 @@ check_binary:
     goto check_binary;
 
 check_size:
-    if (strlen(binary_string) != SIZE) {
+    if (strlen(binary_string) != SIZE)
+    {
         fprintf(stderr, "insert IEEE754 string with length >= %d", SIZE);
         goto ret;
     }
@@ -139,12 +147,16 @@ isolate_bits:
 
 interpret_bits:
     // Special case
-    if (exponent == pow(2, EXP) - 1) {
-        if (mantissa == 0) {
-            if (signbit == 0) {
+    if (exponent == pow(2, EXP) - 1)
+    {
+        if (mantissa == 0)
+        {
+            if (signbit == 0)
+            {
                 printf("+");
             }
-            if (signbit == 1) {
+            if (signbit == 1)
+            {
                 printf("-");
             }
             printf("infinity");
@@ -156,7 +168,8 @@ interpret_bits:
     }
 
     // Denormalized number
-    if (exponent == 0) {
+    if (exponent == 0)
+    {
         // Calculate real values
         real_exponent = exponent - BIAS;
         real_mantissa = interpret_mantissa(mantissa, 1);
