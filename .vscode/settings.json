@@ -24,6 +24,12 @@
     "utility": "cpp",
     "time.h": "c",
     "stdio.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "locale": "c",
+    "memory": "c",
+    "system_error": "c",
+    "type_traits": "c",
+    "vector": "c",
+    "xstring": "c"
   }
 }
