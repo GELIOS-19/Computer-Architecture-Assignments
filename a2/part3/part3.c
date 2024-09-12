@@ -37,11 +37,11 @@
 //-DEXP=XX, defines EXP as XX, and -DFRAC=XX, defining
 // FRAC as XX
 #ifndef EXP
-#define EXP 5
+#    define EXP 5
 #endif
 
 #ifndef FRAC
-#define FRAC 10
+#    define FRAC 10
 #endif
 
 double interpret_mantissa(unsigned long mantissa, int denormalized)

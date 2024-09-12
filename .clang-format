@@ -1,52 +1,9 @@
----
-AccessModifierOffset: -8
-AlignAfterOpenBracket: AlwaysBreak
-AlignConsecutiveMacros:
-  Enabled: true
+BasedOnStyle: LLVM
+# ReflowComments: false
+BreakStringLiterals: false
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+RemoveBracesLLVM: true
 AlignTrailingComments:
   Kind: Never
-AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: Never
-AllowShortCaseLabelsOnASingleLine: true
-AllowShortEnumsOnASingleLine: false
-AllowShortIfStatementsOnASingleLine: AllIfsAndElse
-AllowShortLambdasOnASingleLine: All
-AllowShortLoopsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: None
-AlwaysBreakAfterReturnType: None
-AlwaysBreakBeforeMultilineStrings: true
-BinPackArguments: false
-BinPackParameters: false
-BreakBeforeBraces: Allman
-BreakStringLiterals: false
-ColumnLimit: 10000
-CompactNamespaces: true
-BreakBeforeTernaryOperators: true
-Cpp11BracedListStyle: false
-DerivePointerAlignment: false
-DisableFormat: false
-FixNamespaceComments: true
-InsertBraces: true
-PackConstructorInitializers: Never
-PenaltyBreakAssignment: 0
-PenaltyBreakBeforeFirstCallParameter: 0
 PenaltyBreakComment: 1000000000
-PenaltyBreakFirstLessLess: 0
-PenaltyBreakOpenParenthesis: 0
-PenaltyBreakScopeResolution: 1000000000
-PenaltyBreakString: 1000000000
-PenaltyBreakTemplateDeclaration: 0
-PenaltyExcessCharacter: 0
-PenaltyIndentedWhitespace: 1000000
-PenaltyReturnTypeOnItsOwnLine: 1000000000
-PointerAlignment: Left
-SortIncludes: CaseSensitive
-BracedInitializerIndentWidth: 8
-ConstructorInitializerIndentWidth: 8
-ContinuationIndentWidth: 8
-IndentWidth: 4
-ObjCBlockIndentWidth: 4
-IndentCaseLabels: true
-IndentCaseBlocks: false
-AlignEscapedNewlines: Left
